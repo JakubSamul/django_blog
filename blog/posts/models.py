@@ -1,6 +1,11 @@
-from tabnanny import verbose
+import datetime
 from django.db import models
 from django.contrib.auth.models import User
+
+
+class PostManager(models.Manager):
+    def published(self):
+        return self.get_queryset().filter(active=True, pub_date__lt=datetime.datatime.now())
 
 
 class Post(models.Model):
@@ -15,6 +20,8 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, verbose_name="autor", null=True, blank=True, on_delete=models.CASCADE
     )
+
+    objects = PostManager()
 
     class Meta:
         verbose_name = "wpis"
