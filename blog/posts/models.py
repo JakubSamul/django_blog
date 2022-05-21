@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class PostManager(models.Manager):
     def published(self):
-        return self.get_queryset().filter(active=True, pub_date__lt=datetime.datatime.now())
+        return self.get_queryset().filter(active=True, pub_date__lt=datetime.datetime.now())
 
 
 class Post(models.Model):
