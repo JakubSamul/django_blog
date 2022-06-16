@@ -1,12 +1,12 @@
-% load bootstrap3 %
+{% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="pl">
 
 <head>
     <title>Mój nowy blog</title>
     <meta charset="utf-8" />
-    % bootstrap_cos %
-    % bootstrap_javascript %
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 </head>
 
 <body>
@@ -16,8 +16,8 @@
     </nav>
     <div class="container">
         <div class="col-sm-9">
-            % block countent %
-            % endblock %
+            {% block countent %}
+            {% endblock %}
         </div>
     </div>
 
